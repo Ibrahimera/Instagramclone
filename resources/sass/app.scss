@@ -1,0 +1,45 @@
+// Fonts
+
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+
+div.add__post__btn{
+	text-align: center;
+    padding: 10px;
+    border: 1px solid gray;
+    display: inline-block;
+    border-radius: 100%;
+    width: 47px;
+    height: 47px;
+    cursor:pointer;
+}
+
+div.add__post__btn img{
+	width:18px;
+}
+
+div.create__model{
+    position:relative;
+	width: 500px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 12px;
+    background: white;
+    padding: 10px;
+    box-shadow: -1px 1px 4px 1px #c7c7c7;
+}
+
+div.error__container{
+        height: 80px;
+    }
+
+
+
+
+
