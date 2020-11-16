@@ -175,7 +175,7 @@
 
 <script>
 
-    import Avatar from './Avatar.vue'
+    import Avatar from '../components/Avatar.vue'
     import {mapState,mapActions} from 'vuex'
     import Spinner from 'vue-simple-spinner'
     export default {

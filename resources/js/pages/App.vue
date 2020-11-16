@@ -5,7 +5,7 @@
 	</div>
 </template>
 <script>
-	 import Navbar from './Navbar.vue'
+	 import Navbar from '../components/Navbar.vue'
 	 import {mapActions,mapState} from 'vuex'
 	export default{
 		name:"app",

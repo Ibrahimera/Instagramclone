@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<Navbar :user="authuser" />
 		<div class="container-sm">
         <div class="col-md-8 offset-2">
             <div class="card">
@@ -73,12 +72,10 @@
 </template>
 
 <script>
-	import Navbar from './Navbar.vue'
     import {mapState,mapActions} from 'vuex'
 	export default{
 		name:"Register",
 		components:{
-          Navbar
 		},
 		data(){
 			return{

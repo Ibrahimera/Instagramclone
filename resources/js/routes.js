@@ -1,7 +1,7 @@
-import Home from './components/Home.vue'
-import Profile from './components/Profile.vue'
-import Login from './components/Login.vue'
-import Register from './components/Register.vue'
+import Home from './pages/Home.vue'
+import Profile from './pages/Profile.vue'
+import Login from './pages/Login.vue'
+import Register from './pages/Register.vue'
 
 export default[
    
