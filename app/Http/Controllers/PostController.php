@@ -37,7 +37,7 @@ class PostController extends Controller
     public function store(Request $request)
     {   
       if(auth()->user()){
-        $data=$request->validate(['img'=>"required|image",'img_thumbnail'=>"",'caption'=>"string|max:255"]);
+        $data=$request->validate(['img'=>"required|image",'img_thumbnail'=>"",'caption'=>"string|max:2000"]);
        if($files=$request->file('img')){
             $extension = $files->getClientOriginalExtension();
             $Image = Image::make($files);

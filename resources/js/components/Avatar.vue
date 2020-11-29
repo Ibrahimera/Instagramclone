@@ -2,11 +2,11 @@
 	<div class="d-flex align-items-center justify-content-between p-2">
 	  <div class="d-flex align-items-center">
 	  	<div class="mr-4">
-	      <router-link class="nav-link text-dark" :to="'/'+username"> 
+	      <router-link class="nav-link text-dark"  :to="'/'+username"> 
 	        <img class="profile__image" :src="img">
 	      </router-link>
 	    </div>
-	      <router-link class="nav-link text-dark" :to="'/'+username"><strong>{{username}}</strong></router-link>
+	      <router-link class="nav-link text-dark" :to="'/'+username" ><strong>{{username}}</strong></router-link>
 	  </div >
 	  
 	  <div class="ml-4">

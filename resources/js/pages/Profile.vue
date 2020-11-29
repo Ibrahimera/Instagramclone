@@ -36,7 +36,7 @@
         <div class="followers__modal">
             <div class="text-center">{{followTitle}}</div><span class="cancel cursor" @click="showFollow =!showFollow">x</span>
 
-         <Avatar v-for="(foll,index) in follows" :key="index" :followText="foll.isFollow !=0?'Unfollow':'Follow'" :ausername="authuser[0]" v-on:follow="follow" :username="foll.username" :img="foll.img" />
+         <Avatar v-for="(foll,index) in follows" :key="index" :followText="foll.isFollow !=0?'Unfollow':'Follow'" :ausername="authuser[0]" v-on:follow="follow" :username="foll.username" :img="foll.img"  />
         </div>
         </div>
 
@@ -68,7 +68,7 @@
               <img :src="posts[currentIndex].img" class="w-100 h-100">
           </div>
           <div class="side__post_container col-md-4">
-            <Avatar :followText="followText" :ausername="authuser[0]" v-on:follow="follow" :username="username" :img="profile.img" />
+            <Avatar :followText="followText" :ausername="authuser[0]" v-on:follow="follow" :username="username" :img="profile.img"  />
            <hr>
            <div class="comments__container">
               <div class="d-flex align-items-center caption__container p-2 pb-3">
@@ -77,7 +77,7 @@
                     <img class="profile__image":src="profile.img">
                   </router-link>
                 </div>
-                <div>
+                <div class="word__break">
                   <router-link class="nav-link text-dark" :to="'/'+username">
                     <strong>{{username}}</strong>
                   </router-link> {{posts[currentIndex].caption}}</div>
@@ -89,7 +89,7 @@
                     <img class="profile__image" :src="comment['img']">
                   </router-link>
                 </div>
-                <div>
+                <div class="word__break">
                   <router-link class="nav-link text-dark" :to="'/'+comment['username']">
                     <strong>{{comment['username']}}</strong>
                   </router-link>
@@ -212,6 +212,7 @@
         },
         methods:{
           ...mapActions(['getUser']),
+
            getlikes(pId){
             this.followTitle="Likes"
              axios.get(`/like/${pId}`).then(response=>{
@@ -259,7 +260,7 @@
                 success:function(e){e.time="now";insert(e)},error:function(){}
             });
              
-            const insert=(data)=>{this.posts=[data,...this.posts]}
+            const insert=(data)=>{this.posts=[data,...this.posts];this.liked=[0,...this.liked];this.caption=''}
 
             },
             openLikeModal(index){
@@ -404,6 +405,10 @@
 </script>
 
 <style>
+  div.word__break{
+    max-width: 75%;
+    word-break: break-all;
+  }
   div.loading__container{
      height: 70vh;
   }

@@ -57,6 +57,11 @@ class CommentController extends Controller
             $post=Post::where('id',$pId)->first();
             $post->update(['comment'=>$post->comment + 1]);
             $comment=Comment::create(['user_id'=>$id,'post_id'=>$pId,'comment'=>$msg]);
+            $user=$comment->user;
+            $username=$user->username;
+            $time=$comment->created_at->diffForHumans();
+            $item=['id'=>$comment->id,'username'=>$username,'comment'=>$msg,'time'=>$time];
+            return $item;
             
         }else{
             return "error";

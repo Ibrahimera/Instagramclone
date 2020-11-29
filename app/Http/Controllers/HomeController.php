@@ -64,7 +64,7 @@ class HomeController extends Controller
          }
 
          $index=0;
-           while (count($postsArray) < 8) {
+           while (count($postsArray) < 8 && count($postsArray) < count($posts)) {
                $post1=$posts[$index];
                $u1=User::where('id',$post1['user_id'])->select('id','username')->first();
                $p1=Profile::where('user_id',$u1['id'])->first();
