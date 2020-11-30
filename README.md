@@ -4,7 +4,6 @@
 downlaod the files above and run it on your local machine
 i will keep update it 
 ### instagram clone 
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
-<img src="https://ibb.co/RpNCy4D">
+<img src="https://i.ibb.co/nsBDC8L/clone.png" alt="clone" border="0">
 ### instagram
-<img src="https://ibb.co/J5VRR9X">
+<img src="https://i.ibb.co/synvvZL/instragram.png" alt="instragram" border="0">
