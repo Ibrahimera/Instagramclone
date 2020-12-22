@@ -43,20 +43,25 @@ class ProfileController extends Controller
             $data=$request->validate(['img'=>"",'description'=>"string|max:255",'website'=>"string|max:255",'name'=>"string|max:100"]);
             $profileUpdate=Profile::where('id',$request->id)->first();
             if($profileUpdate->user->id==auth()->user()->id){
-            if($request->file('img')){
-            $imgPath=$request->img->store('uploads/profiles','public');
-            $image=Image::make(public_path('storage/'.$imgPath))->fit(150,150);
-            $image->save();
-            $imageArray=['img'=>"/storage/$imgPath"];
-            if($profileUpdate->img !='/storage/uploads/posts/user.svg'){unlink(public_path($profileUpdate->img));}}
+            if($files=$request->file('img')){
+            $extension = $files->getClientOriginalExtension();
+            $Image = Image::make($files);
+            $Image=$Image->fit(150,150);
+            $simg= "storage/uploads/profiles/".time().".".$extension;
+            $Image->save($simg);
+
+            $imageArray=['img'=>$simg];
+            if($profileUpdate->img !='/storage/uploads/profiles/user.svg'){unlink(public_path($profileUpdate->img));}}
             
            $updated= $profileUpdate->update(array_merge($data,$imageArray ?? []));
-            if(isset($imgPath)){return "/storage/$imgPath";}else{return 0;}                
+            if(isset($simg)){return $simg;}else{return 0;}                
             }
             
         }
        
     }
+    
+ 
 
     /**
      * Display the specified resource.
